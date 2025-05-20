@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="survey-title">Customer Satisfaction Survey</h1>
+        <p class="description">We value your feedback. Please take a few minutes to complete this survey.</p>
+
+        <form id="survey-form" novalidate>
+            <div class="form-group">
+                <label for="name" class="required">Full Name</label>
+                <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error">
+                <div id="name-error" class="error" role="alert">Please enter your full name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error">
+                <div id="email-error" class="error" role="alert">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age (optional)</label>
+                <input type="number" id="age" name="age" min="13" max="120" aria-describedby="age-error">
+                <div id="age-error" class="error" role="alert">Please enter a valid age between 13 and 120</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (optional)</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" aria-describedby="phone-error">
+                <div id="phone-error" class="error" role="alert">Please enter a 10-digit phone number</div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">How satisfied are you with our service?</label>
+                <div class="radio-group" role="radiogroup" aria-labelledby="satisfaction-label">
+                    <div class="radio-option">
+                        <input type="radio" id="very-satisfied" name="satisfaction" value="very-satisfied" required aria-required="true">
+                        <label for="very-satisfied">Very Satisfied</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="satisfied" name="satisfaction" value="satisfied">
+                        <label for="satisfied">Satisfied</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="neutral" name="satisfaction" value="neutral">
+                        <label for="neutral">Neutral</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied">
+                        <label for="dissatisfied">Dissatisfied</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="very-dissatisfied" name="satisfaction" value="very-dissatisfied">
+                        <label for="very-dissatisfied">Very Dissatisfied</label>
+                    </div>
+                </div>
+                <div id="satisfaction-error" class="error" role="alert">Please select a satisfaction level</div>
+            </div>
+
+            <div class="form-group">
+                <label for="improvements">What could we improve? (select all that apply)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="improve-service" name="improvements" value="service">
+                        <label for="improve-service">Customer Service</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="improve-quality" name="improvements" value="quality">
+                        <label for="improve-quality">Product Quality</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="improve-price" name="improvements" value="price">
+                        <label for="improve-price">Pricing</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="improve-delivery" name="improvements" value="delivery">
+                        <label for="improve-delivery">Delivery Speed</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="improve-other" name="improvements" value="other">
+                        <label for="improve-other">Other</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Additional Feedback</label>
+                <textarea id="feedback" name="feedback" aria-describedby="feedback-error"></textarea>
+                <div id="feedback-error" class="error" role="alert">Please limit your feedback to 500 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="referral">How did you hear about us?</label>
+                <select id="referral" name="referral">
+                    <option value="">Select an option</option>
+                    <option value="search">Search Engine</option>
+                    <option value="social">Social Media</option>
+                    <option value="friend">Friend/Family</option>
+                    <option value="ad">Advertisement</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="visit-date">Date of Last Visit (optional)</label>
+                <input type="date" id="visit-date" name="visit-date" aria-describedby="date-error">
+                <div id="date-error" class="error" role="alert">Please select a valid date</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="required">Create a Password (for account creation)</label>
+                <input type="password" id="password" name="password" required aria-required="true" aria-describedby="password-error">
+                <div id="password-error" class="error" role="alert">Password must be at least 8 characters long</div>
+            </div>
+
+            <button type="submit" id="submit-btn">Submit Survey</button>
+
+            <div id="success-message" class="success-message" role="alert">
+                Thank you for completing our survey! Your feedback has been submitted successfully.
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
